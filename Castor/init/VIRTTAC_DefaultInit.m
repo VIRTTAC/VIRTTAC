@@ -13,6 +13,7 @@ Constants.kt2mpers = 1852/3600;
 InterfaceDefinition  = load('VIRTTAC_Castor_sFunctionInputOutputDefintion');
 VIRTTAC.OutputInterface.Index = InterfaceDefinition.OutputIndex;
 VIRTTAC.InputInterface.Index  = InterfaceDefinition.InputIndex;
+clear InterfaceDefinition;
 
 % Setting default trim inputs which is required for
 % evaluating the model and is used as starting point 
@@ -51,6 +52,8 @@ VIRTTAC.Trim_Point.Phi       = 0     * Constants.deg2rad;   % [deg]
 VIRTTAC.Trim_Point.Psi       = 60    * Constants.deg2rad;   % [rad]
 VIRTTAC.Trim_Point.Latitude  = 53    * Constants.deg2rad;   % [rad]
 VIRTTAC.Trim_Point.Longitude = -3    * Constants.deg2rad;   % [rad]
+
+VIRTTAC.Trim_Point.TrimSuccessCode = -1;   % Zero or positive for success
 
 % Default atmospheric values
 VIRTTAC.Atmosphere.WindNED       = zeros(3,1);

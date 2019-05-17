@@ -59,9 +59,13 @@ VIRTTAC.Sim.Trimming = 1;
 clear sfunc_VIRTTAC_Castor;
 VIRTTAC.Sim.Trimming = 0;
 VIRTTAC.Trim.ElapsedTime = toc;
-disp(['Time required for loading and trimming the model: ',...
-      num2str(VIRTTAC.Trim.ElapsedTime),' s.',]);
 
+if (VIRTTAC.Trim_Point.TrimSuccessCode >= 0),
+    disp(['Time required for loading and trimming the model: ',...
+          num2str(VIRTTAC.Trim.ElapsedTime),' s.',]);
+else
+    error('Error was detected during the model trim, stopping execution!');
+end
 
 
 %% Define/Choose Open-Loop Maneuver

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.65"
+    ComputedModelVersion    "1.66"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -42,11 +42,11 @@ Model {
   Creator		  "deil_ch"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "deil_ch"
+  LastModifiedBy	  "feza_ni"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 25 13:46:09 2019"
+  LastModifiedDate	  "Fri May 17 10:35:55 2019"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:65>"
+  ModelVersionFormat	  "1.%<AutoIncrement:66>"
   ConfigurationManager	  "None"
   SimulationMode	  "normal"
   LinearizationMsg	  "none"
@@ -721,7 +721,7 @@ Model {
   }
   System {
     Name		    "VIRTTAC_Model"
-    Location		    [294, 227, 1625, 852]
+    Location		    [294, 227, 1271, 716]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -841,15 +841,6 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace"
-	  Position		  [545, 54, 705, 86]
-	  VariableName		  "AC_Configuration_Cmd"
-	  MaxDataPoints		  "inf"
-	  SampleTime		  "-1"
-	  SaveFormat		  "Structure With Time"
-	}
-	Block {
 	  BlockType		  Outport
 	  Name			  "AC Configuration Cmd"
 	  Position		  [580, 123, 610, 137]
@@ -869,16 +860,8 @@ Model {
 	  Labels		  [0, 0]
 	  SrcBlock		  "Mux1"
 	  SrcPort		  1
-	  Points		  [65, 0]
-	  Branch {
-	    DstBlock		    "AC Configuration Cmd"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, -60]
-	    DstBlock		    "To Workspace"
-	    DstPort		    1
-	  }
+	  DstBlock		  "AC Configuration Cmd"
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "High lift configuration selection"
@@ -1132,15 +1115,6 @@ Model {
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
-	      BlockType		      ToWorkspace
-	      Name		      "To Workspace"
-	      Position		      [835, 134, 995, 166]
-	      VariableName	      "Primary_Control_Surface_Cmd"
-	      MaxDataPoints	      "inf"
-	      SampleTime	      "-1"
-	      SaveFormat	      "Structure With Time"
-	    }
-	    Block {
 	      BlockType		      Constant
 	      Name		      "horizontal stabilzer command"
 	      Position		      [15, 209, 255, 231]
@@ -1211,16 +1185,8 @@ Model {
 	      Labels		      [0, 0]
 	      SrcBlock		      "Mux2"
 	      SrcPort		      1
-	      Points		      [145, 0]
-	      Branch {
-		DstBlock		"Primary Control Surface Cmd"
-		DstPort			1
-	      }
-	      Branch {
-		Points			[0, -105]
-		DstBlock		"To Workspace"
-		DstPort			1
-	      }
+	      DstBlock		      "Primary Control Surface Cmd"
+	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Rudder command"
@@ -1441,15 +1407,6 @@ Model {
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
-	      BlockType		      ToWorkspace
-	      Name		      "To Workspace"
-	      Position		      [855, 125, 1070, 155]
-	      VariableName	      "Secondary_Control_Surface_Cmd"
-	      MaxDataPoints	      "inf"
-	      SampleTime	      "-1"
-	      SaveFormat	      "Structure With Time"
-	    }
-	    Block {
 	      BlockType		      Constant
 	      Name		      "left hand spoiler 1 command"
 	      Position		      [25, 44, 235, 66]
@@ -1553,16 +1510,8 @@ Model {
 	      Labels		      [0, 0]
 	      SrcBlock		      "Mux1"
 	      SrcPort		      1
-	      Points		      [130, 0]
-	      Branch {
-		DstBlock		"Secondary Control Surface Cmd"
-		DstPort			1
-	      }
-	      Branch {
-		Points			[0, -150]
-		DstBlock		"To Workspace"
-		DstPort			1
-	      }
+	      DstBlock		      "Secondary Control Surface Cmd"
+	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "left hand spoiler 5 command"
@@ -1808,15 +1757,6 @@ Model {
 	  ZeroCross		  on
 	}
 	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace"
-	  Position		  [500, 34, 660, 66]
-	  VariableName		  "Engine_Control_Cmd"
-	  MaxDataPoints		  "inf"
-	  SampleTime		  "-1"
-	  SaveFormat		  "Structure With Time"
-	}
-	Block {
 	  BlockType		  Outport
 	  Name			  "Engine Cmd"
 	  Position		  [520, 133, 550, 147]
@@ -1830,16 +1770,8 @@ Model {
 	  Labels		  [0, 0]
 	  SrcBlock		  "Mux1"
 	  SrcPort		  1
-	  Points		  [55, 0]
-	  Branch {
-	    DstBlock		    "Engine Cmd"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, -90]
-	    DstBlock		    "To Workspace"
-	    DstPort		    1
-	  }
+	  DstBlock		  "Engine Cmd"
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Right Hand Engine Thrust Cmd"
