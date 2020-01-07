@@ -15,6 +15,8 @@ VIRTTAC.OutputInterface.Index = InterfaceDefinition.OutputIndex;
 VIRTTAC.InputInterface.Index  = InterfaceDefinition.InputIndex;
 clear InterfaceDefinition;
 
+[VIRTTAC.model_name,VIRTTAC.version]=VIRTTAC_GetModelNameAndCurrentVersion();
+
 % Setting default trim inputs which is required for
 % evaluating the model and is used as starting point 
 % of the trim algorithm
@@ -54,6 +56,10 @@ VIRTTAC.Trim_Point.Latitude  = 53    * Constants.deg2rad;   % [rad]
 VIRTTAC.Trim_Point.Longitude = -3    * Constants.deg2rad;   % [rad]
 
 VIRTTAC.Trim_Point.TrimSuccessCode = -1;   % Zero or positive for success
+%VIRTTAC.Trim_Point.TrimCondition   = 1;    % [1] steady horizontal flight
+%                                           % [2] coordinated turn at predefined bank angle Phi
+VIRTTAC.Trim_Point.TrimRawData = '';
+
 
 % Default atmospheric values
 VIRTTAC.Atmosphere.WindNED       = zeros(3,1);
@@ -63,16 +69,32 @@ VIRTTAC.Atmosphere.p_stat_offset = 0.0;
 % Default flags for the icing scenario
 VIRTTAC.ErrorCase.WingIce   = 0; % [0] off, [1] on
 VIRTTAC.ErrorCase.TailIce   = 0; % [0] off, [1] on
+% Default flags for the actuator fault scenarios
+VIRTTAC.ErrorCase.ActuatorFault.ElevatorLH = 0; % [0] off, [1] on
+VIRTTAC.ErrorCase.ActuatorFault.ElevatorRH = 0; % [0] off, [1] on
+VIRTTAC.ErrorCase.ActuatorFault.AileronLH  = 0; % [0] off, [1] on
+VIRTTAC.ErrorCase.ActuatorFault.AileronRH  = 0; % [0] off, [1] on
+VIRTTAC.ErrorCase.ActuatorFault.Rudder     = 0; % [0] off, [1] on
 
+
+% Geometry Parameters
+VIRTTAC.Geometry.MAC        =  2.17; % [m]
+VIRTTAC.Geometry.x_ref      = -13.0; % [m]
+VIRTTAC.Geometry.x_ref_25   =  VIRTTAC.Geometry.x_ref-0.25*VIRTTAC.Geometry.MAC; % [m]
 
 % Weight and Balance Parameters
-VIRTTAC.WeightBalance.FuelOnBoard = 1000.0; % [kg]
+VIRTTAC.WeightBalance.FuelConfig  = 0; % [0] minimum fuel qantity
+                                       % [1] low fuel qantity
+                                       % [2] medium fuel qantity
+                                       % [3] maximum fuel qantity
 VIRTTAC.WeightBalance.PayloadPax  = 8000.0; % [kg]
+VIRTTAC.WeightBalance.PayloadCG   = [VIRTTAC.Geometry.x_ref_25,0.0,0.0]; % vector in body ref. coordinates [m,m,m]
 
 % Sim configuration
-VIRTTAC.Sim.SampleTime  = 0.01;
-VIRTTAC.Sim.StartTime   = 0.00;
-VIRTTAC.Sim.EndTime     = 600.0;
+VIRTTAC.Sim.InputPortDim    = 32;
+VIRTTAC.Sim.SampleTime      = 0.01;
+VIRTTAC.Sim.StartTime       = 0.00;
+VIRTTAC.Sim.EndTime         = 600.0;
 
 VIRTTAC.Sim.Time = VIRTTAC.Sim.StartTime:VIRTTAC.Sim.SampleTime:VIRTTAC.Sim.EndTime;
 
@@ -81,9 +103,11 @@ VIRTTAC.Sim.Time = VIRTTAC.Sim.StartTime:VIRTTAC.Sim.SampleTime:VIRTTAC.Sim.EndT
 % Remark 1: required to be able to execute the model
 % Remark 2: no maneuver (all 0) => for maneuver init please refer
 %           to the "VIRTTAC_Maneuver_Init" function
-VIRTTAC.OpenLoopManeuver.ElevatorCmd  = [VIRTTAC.Sim.Time',zeros(length(VIRTTAC.Sim.Time),1)];
-VIRTTAC.OpenLoopManeuver.AileronCmd   = [VIRTTAC.Sim.Time',zeros(length(VIRTTAC.Sim.Time),1)];
-VIRTTAC.OpenLoopManeuver.RudderCmd    = [VIRTTAC.Sim.Time',zeros(length(VIRTTAC.Sim.Time),1)];
+VIRTTAC.OpenLoopManeuver.ElevatorCmd                 = [VIRTTAC.Sim.Time',zeros(length(VIRTTAC.Sim.Time),1)];
+VIRTTAC.OpenLoopManeuver.AileronCmd                  = [VIRTTAC.Sim.Time',zeros(length(VIRTTAC.Sim.Time),1)];
+VIRTTAC.OpenLoopManeuver.RudderCmd                   = [VIRTTAC.Sim.Time',zeros(length(VIRTTAC.Sim.Time),1)];
+VIRTTAC.OpenLoopManeuver.HorizontalStabilizerCmd     = [VIRTTAC.Sim.Time',zeros(length(VIRTTAC.Sim.Time),1)];
+
 VIRTTAC.OpenLoopManeuver.HighLiftCmd  = [VIRTTAC.Sim.Time',ones(length(VIRTTAC.Sim.Time),1)*VIRTTAC.Trim_Inputs.HighLiftConfiguration];
 VIRTTAC.OpenLoopManeuver.ThrottleCmd  = [VIRTTAC.Sim.Time',zeros(length(VIRTTAC.Sim.Time),1)];
 VIRTTAC.OpenLoopManeuver.SpoilerLHCmd.time = VIRTTAC.Sim.Time;

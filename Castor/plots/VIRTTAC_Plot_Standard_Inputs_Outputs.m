@@ -283,9 +283,9 @@ function [figureHandle]=VIRTTAC_Plot_Standard_Inputs_Outputs(fig_id,VIRTTAC_SimD
     hfa22(end+1) =  subplot('Position',[VIRTTAC_Plot.xLeft_Col3of5    VIRTTAC_Plot.yBottom_Row2of5 ...
                                                       VIRTTAC_Plot.wWidth           VIRTTAC_Plot.hHeight_OneFifth]);
                     hold on; set(hfa22(end),'Box','on');
-                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.phi_IRU1_deg,'-g','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
-                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.phi_IRU2_deg,'-.k','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
-                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.phi_IRU3_deg,'--m','Linewidth',VIRTTAC_PlotProperties.RefLineWidth);
+                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.Phi_IRU1_deg,'-g','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
+                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.Phi_IRU2_deg,'-.k','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
+                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.Phi_IRU3_deg,'--m','Linewidth',VIRTTAC_PlotProperties.RefLineWidth);
                     y_lims = get(gca,'YLim');
                     min_y_scale = 2;
                     if ( (y_lims(2)-y_lims(1))<min_y_scale ), 
@@ -301,9 +301,9 @@ function [figureHandle]=VIRTTAC_Plot_Standard_Inputs_Outputs(fig_id,VIRTTAC_SimD
     hfa22(end+1) =  subplot('Position',[VIRTTAC_Plot.xLeft_Col4of5    VIRTTAC_Plot.yBottom_Row2of5 ...
                                                       VIRTTAC_Plot.wWidth           VIRTTAC_Plot.hHeight_OneFifth]);
                     hold on; set(hfa22(end),'Box','on');
-                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.theta_IRU1_deg,'-g','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
-                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.theta_IRU2_deg,'-.k','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
-                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.theta_IRU3_deg,'--m','Linewidth',VIRTTAC_PlotProperties.RefLineWidth);
+                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.Theta_IRU1_deg,'-g','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
+                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.Theta_IRU2_deg,'-.k','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
+                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.Theta_IRU3_deg,'--m','Linewidth',VIRTTAC_PlotProperties.RefLineWidth);
                     y_lims = get(gca,'YLim');
                     min_y_scale = 2;
                     if ( (y_lims(2)-y_lims(1))<min_y_scale ), 
@@ -320,9 +320,9 @@ function [figureHandle]=VIRTTAC_Plot_Standard_Inputs_Outputs(fig_id,VIRTTAC_SimD
     hfa22(end+1) =  subplot('Position',[VIRTTAC_Plot.xLeft_Col5of5    VIRTTAC_Plot.yBottom_Row2of5 ...
                                                       VIRTTAC_Plot.wWidth           VIRTTAC_Plot.hHeight_OneFifth]);
                     hold on; set(hfa22(end),'Box','on');
-                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.psi_IRU1_deg,'-g','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
-                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.psi_IRU2_deg,'-.k','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
-                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.psi_IRU3_deg,'--m','Linewidth',VIRTTAC_PlotProperties.RefLineWidth);
+                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.Psi_IRU1_deg,'-g','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
+                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.Psi_IRU2_deg,'-.k','Linewidth',VIRTTAC_PlotProperties.RefLineWidth); 
+                    plot(VIRTTAC_SimData.Outputs.Time, VIRTTAC_SimData.Outputs.Psi_IRU3_deg,'--m','Linewidth',VIRTTAC_PlotProperties.RefLineWidth);
                     y_lims = get(gca,'YLim');
                     min_y_scale = 2;
                     if ( (y_lims(2)-y_lims(1))<min_y_scale ), 

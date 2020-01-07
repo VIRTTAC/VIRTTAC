@@ -32,11 +32,11 @@ Library {
   Creator		  "deil_ch"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "deil_ch"
+  LastModifiedBy	  "feza_ni"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 26 15:15:30 2019"
+  LastModifiedDate	  "Tue Oct 29 08:21:49 2019"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:76>"
+  ModelVersionFormat	  "1.%<AutoIncrement:82>"
   ConfigurationManager	  "None"
   SimulationMode	  "normal"
   LinearizationMsg	  "none"
@@ -224,7 +224,7 @@ Library {
       System {
 	Name			"VIRTTAC-Castor\nSimulation Model"
 	Location		[232, 339, 1074, 708]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -243,7 +243,7 @@ Library {
 	  BackgroundColor	  "yellow"
 	  NamePlacement		  "alternate"
 	  IconDisplay		  "Port number"
-	  PortDimensions	  "27"
+	  PortDimensions	  "VIRTTAC.Sim.InputPortDim"
 	  DataType		  "double"
 	}
 	Block {
@@ -276,16 +276,16 @@ Library {
 	      Position		      [50, 499, 75, 511]
 	      BackgroundColor	      "yellow"
 	      IconDisplay	      "Port number"
-	      PortDimensions	      "65"
+	      PortDimensions	      "70"
 	      DataType		      "double"
 	    }
 	    Block {
 	      BlockType		      BusCreator
 	      Name		      "InputBus"
-	      Ports		      [65, 1]
-	      Position		      [580, 17, 585, 993]
+	      Ports		      [70, 1]
+	      Position		      [580, 17, 585, 1068]
 	      ShowName		      off
-	      Inputs		      "65"
+	      Inputs		      "70"
 	      Port {
 		PortNumber		1
 		Name			"To_Model"
@@ -296,10 +296,10 @@ Library {
 	    Block {
 	      BlockType		      Demux
 	      Name		      "InputDemux"
-	      Ports		      [1, 65]
-	      Position		      [300, 17, 350, 993]
+	      Ports		      [1, 70]
+	      Position		      [300, 17, 350, 1068]
 	      ShowName		      off
-	      Outputs		      "65"
+	      Outputs		      "70"
 	      Port {
 		PortNumber		1
 		Name			"ax_IRU1 [g]"
@@ -338,19 +338,19 @@ Library {
 	      }
 	      Port {
 		PortNumber		7
-		Name			"phi_IRU1 [rad]"
+		Name			"Phi_IRU1 [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		8
-		Name			"theta_IRU1 [rad]"
+		Name			"Theta_IRU1 [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		9
-		Name			"psi_IRU1 [rad]"
+		Name			"Psi_IRU1 [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -392,19 +392,19 @@ Library {
 	      }
 	      Port {
 		PortNumber		16
-		Name			"phi_IRU2 [rad]"
+		Name			"Phi_IRU2 [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		17
-		Name			"theta_IRU2 [rad]"
+		Name			"Theta_IRU2 [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		18
-		Name			"psi_IRU2 [rad]"
+		Name			"Psi_IRU2 [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -446,19 +446,19 @@ Library {
 	      }
 	      Port {
 		PortNumber		25
-		Name			"phi_IRU3 [rad]"
+		Name			"Phi_IRU3 [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		26
-		Name			"theta_IRU3 [rad]"
+		Name			"Theta_IRU3 [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		27
-		Name			"psi_IRU3 [rad]"
+		Name			"Psi_IRU3 [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -566,127 +566,157 @@ Library {
 	      }
 	      Port {
 		PortNumber		45
-		Name			"Elevator_LH [rad]"
+		Name			"FF_LH_Sen [kg/s]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		46
-		Name			"Elevator_RH [rad]"
+		Name			"FF_RH_Sen [kg/s]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		47
-		Name			"Aileron_LH [rad]"
+		Name			"Elevator_LH [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		48
-		Name			"Aileron_RH [rad]"
+		Name			"Elevator_RH [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		49
-		Name			"Rudder [rad]"
+		Name			"Aileron_LH [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		50
-		Name			"HorizStabil [rad]"
+		Name			"Aileron_RH [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		51
-		Name			"Flap_LH [rad]"
+		Name			"Rudder [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		52
-		Name			"Flap_RH [rad]"
+		Name			"HorizStabil [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		53
-		Name			"Spoiler_LH1_meas [rad]"
+		Name			"Flap_LH [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		54
-		Name			"Spoiler_LH2_meas [rad]"
+		Name			"Flap_RH [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		55
-		Name			"Spoiler_LH3_meas [rad]"
+		Name			"Spoiler_LH1_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		56
-		Name			"Spoiler_LH4_meas [rad]"
+		Name			"Spoiler_LH2_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		57
-		Name			"Spoiler_LH5_meas [rad]"
+		Name			"Spoiler_LH3_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		58
-		Name			"Spoiler_RH1_meas [rad]"
+		Name			"Spoiler_LH4_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		59
-		Name			"Spoiler_RH2_meas [rad]"
+		Name			"Spoiler_LH5_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		60
-		Name			"Spoiler_RH3_meas [rad]"
+		Name			"Spoiler_RH1_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		61
-		Name			"Spoiler_RH4_meas [rad]"
+		Name			"Spoiler_RH2_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		62
-		Name			"Spoiler_RH5_meas [rad]"
+		Name			"Spoiler_RH3_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		63
-		Name			"latitude_GPS [rad]"
+		Name			"Spoiler_RH4_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		64
-		Name			"longitude_GPS [rad]"
+		Name			"Spoiler_RH5_meas [rad]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		65
+		Name			"latitude_GPS [rad]"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		66
+		Name			"longitude_GPS [rad]"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		67
 		Name			"H_GPS [m]"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		68
+		Name			"FuelQty_LH [kg]"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		69
+		Name			"FuelQty_CNT [kg]"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		70
+		Name			"FuelQty_RH [kg]"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -761,7 +791,7 @@ Library {
 	      DstPort		      6
 	    }
 	    Line {
-	      Name		      "phi_IRU1 [rad]"
+	      Name		      "Phi_IRU1 [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      7
@@ -769,7 +799,7 @@ Library {
 	      DstPort		      7
 	    }
 	    Line {
-	      Name		      "theta_IRU1 [rad]"
+	      Name		      "Theta_IRU1 [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      8
@@ -777,7 +807,7 @@ Library {
 	      DstPort		      8
 	    }
 	    Line {
-	      Name		      "psi_IRU1 [rad]"
+	      Name		      "Psi_IRU1 [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      9
@@ -833,7 +863,7 @@ Library {
 	      DstPort		      15
 	    }
 	    Line {
-	      Name		      "phi_IRU2 [rad]"
+	      Name		      "Phi_IRU2 [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      16
@@ -841,7 +871,7 @@ Library {
 	      DstPort		      16
 	    }
 	    Line {
-	      Name		      "theta_IRU2 [rad]"
+	      Name		      "Theta_IRU2 [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      17
@@ -849,7 +879,7 @@ Library {
 	      DstPort		      17
 	    }
 	    Line {
-	      Name		      "psi_IRU2 [rad]"
+	      Name		      "Psi_IRU2 [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      18
@@ -905,7 +935,7 @@ Library {
 	      DstPort		      24
 	    }
 	    Line {
-	      Name		      "phi_IRU3 [rad]"
+	      Name		      "Phi_IRU3 [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      25
@@ -913,7 +943,7 @@ Library {
 	      DstPort		      25
 	    }
 	    Line {
-	      Name		      "theta_IRU3 [rad]"
+	      Name		      "Theta_IRU3 [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      26
@@ -921,7 +951,7 @@ Library {
 	      DstPort		      26
 	    }
 	    Line {
-	      Name		      "psi_IRU3 [rad]"
+	      Name		      "Psi_IRU3 [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      27
@@ -1065,7 +1095,7 @@ Library {
 	      DstPort		      44
 	    }
 	    Line {
-	      Name		      "Elevator_LH [rad]"
+	      Name		      "FF_LH_Sen [kg/s]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      45
@@ -1073,7 +1103,7 @@ Library {
 	      DstPort		      45
 	    }
 	    Line {
-	      Name		      "Elevator_RH [rad]"
+	      Name		      "FF_RH_Sen [kg/s]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      46
@@ -1081,7 +1111,7 @@ Library {
 	      DstPort		      46
 	    }
 	    Line {
-	      Name		      "Aileron_LH [rad]"
+	      Name		      "Elevator_LH [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      47
@@ -1089,7 +1119,7 @@ Library {
 	      DstPort		      47
 	    }
 	    Line {
-	      Name		      "Aileron_RH [rad]"
+	      Name		      "Elevator_RH [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      48
@@ -1097,7 +1127,7 @@ Library {
 	      DstPort		      48
 	    }
 	    Line {
-	      Name		      "Rudder [rad]"
+	      Name		      "Aileron_LH [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      49
@@ -1105,7 +1135,7 @@ Library {
 	      DstPort		      49
 	    }
 	    Line {
-	      Name		      "HorizStabil [rad]"
+	      Name		      "Aileron_RH [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      50
@@ -1113,7 +1143,7 @@ Library {
 	      DstPort		      50
 	    }
 	    Line {
-	      Name		      "Flap_LH [rad]"
+	      Name		      "Rudder [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      51
@@ -1121,7 +1151,7 @@ Library {
 	      DstPort		      51
 	    }
 	    Line {
-	      Name		      "Flap_RH [rad]"
+	      Name		      "HorizStabil [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      52
@@ -1129,7 +1159,7 @@ Library {
 	      DstPort		      52
 	    }
 	    Line {
-	      Name		      "Spoiler_LH1_meas [rad]"
+	      Name		      "Flap_LH [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      53
@@ -1137,7 +1167,7 @@ Library {
 	      DstPort		      53
 	    }
 	    Line {
-	      Name		      "Spoiler_LH2_meas [rad]"
+	      Name		      "Flap_RH [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      54
@@ -1145,7 +1175,7 @@ Library {
 	      DstPort		      54
 	    }
 	    Line {
-	      Name		      "Spoiler_LH3_meas [rad]"
+	      Name		      "Spoiler_LH1_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      55
@@ -1153,7 +1183,7 @@ Library {
 	      DstPort		      55
 	    }
 	    Line {
-	      Name		      "Spoiler_LH4_meas [rad]"
+	      Name		      "Spoiler_LH2_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      56
@@ -1161,7 +1191,7 @@ Library {
 	      DstPort		      56
 	    }
 	    Line {
-	      Name		      "Spoiler_LH5_meas [rad]"
+	      Name		      "Spoiler_LH3_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      57
@@ -1169,7 +1199,7 @@ Library {
 	      DstPort		      57
 	    }
 	    Line {
-	      Name		      "Spoiler_RH1_meas [rad]"
+	      Name		      "Spoiler_LH4_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      58
@@ -1177,7 +1207,7 @@ Library {
 	      DstPort		      58
 	    }
 	    Line {
-	      Name		      "Spoiler_RH2_meas [rad]"
+	      Name		      "Spoiler_LH5_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      59
@@ -1185,7 +1215,7 @@ Library {
 	      DstPort		      59
 	    }
 	    Line {
-	      Name		      "Spoiler_RH3_meas [rad]"
+	      Name		      "Spoiler_RH1_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      60
@@ -1193,7 +1223,7 @@ Library {
 	      DstPort		      60
 	    }
 	    Line {
-	      Name		      "Spoiler_RH4_meas [rad]"
+	      Name		      "Spoiler_RH2_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      61
@@ -1201,7 +1231,7 @@ Library {
 	      DstPort		      61
 	    }
 	    Line {
-	      Name		      "Spoiler_RH5_meas [rad]"
+	      Name		      "Spoiler_RH3_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      62
@@ -1209,7 +1239,7 @@ Library {
 	      DstPort		      62
 	    }
 	    Line {
-	      Name		      "latitude_GPS [rad]"
+	      Name		      "Spoiler_RH4_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      63
@@ -1217,7 +1247,7 @@ Library {
 	      DstPort		      63
 	    }
 	    Line {
-	      Name		      "longitude_GPS [rad]"
+	      Name		      "Spoiler_RH5_meas [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      64
@@ -1225,12 +1255,52 @@ Library {
 	      DstPort		      64
 	    }
 	    Line {
-	      Name		      "H_GPS [m]"
+	      Name		      "latitude_GPS [rad]"
 	      Labels		      [0, 0]
 	      SrcBlock		      "InputDemux"
 	      SrcPort		      65
 	      DstBlock		      "InputBus"
 	      DstPort		      65
+	    }
+	    Line {
+	      Name		      "longitude_GPS [rad]"
+	      Labels		      [0, 0]
+	      SrcBlock		      "InputDemux"
+	      SrcPort		      66
+	      DstBlock		      "InputBus"
+	      DstPort		      66
+	    }
+	    Line {
+	      Name		      "H_GPS [m]"
+	      Labels		      [0, 0]
+	      SrcBlock		      "InputDemux"
+	      SrcPort		      67
+	      DstBlock		      "InputBus"
+	      DstPort		      67
+	    }
+	    Line {
+	      Name		      "FuelQty_LH [kg]"
+	      Labels		      [0, 0]
+	      SrcBlock		      "InputDemux"
+	      SrcPort		      68
+	      DstBlock		      "InputBus"
+	      DstPort		      68
+	    }
+	    Line {
+	      Name		      "FuelQty_CNT [kg]"
+	      Labels		      [0, 0]
+	      SrcBlock		      "InputDemux"
+	      SrcPort		      69
+	      DstBlock		      "InputBus"
+	      DstPort		      69
+	    }
+	    Line {
+	      Name		      "FuelQty_RH [kg]"
+	      Labels		      [0, 0]
+	      SrcBlock		      "InputDemux"
+	      SrcPort		      70
+	      DstBlock		      "InputBus"
+	      DstPort		      70
 	    }
 	  }
 	}

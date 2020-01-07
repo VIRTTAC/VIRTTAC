@@ -28,16 +28,22 @@ disp(sprintf(['\nStarting open loop simulation with ',...
 % be done hereafter in the run-script.
 
 % Definition of the flight point at which the aircraft will be trimmed
-VIRTTAC.Trim_Point.Altitude  = 15000 * Constants.ft2m;      % [m]
+VIRTTAC.Trim_Point.Altitude  = 10000 * Constants.ft2m;      % [m]
 VIRTTAC.Trim_Point.VCAS      = 280   * Constants.kt2mpers;  % [m/s]
-VIRTTAC.Trim_Point.Phi       = 0     * Constants.deg2rad;   % [deg] - bank angle
+VIRTTAC.Trim_Point.Phi       = 0    * Constants.deg2rad;   % [deg] - bank angle
 VIRTTAC.Trim_Point.Psi       = 60    * Constants.deg2rad;   % [rad] - heading
 VIRTTAC.Trim_Point.Latitude  = 53    * Constants.deg2rad;   % [rad]
 VIRTTAC.Trim_Point.Longitude = -3    * Constants.deg2rad;   % [rad]
 
+
 % Weight and Balance Parameters
-VIRTTAC.WeightBalance.FuelOnBoard = 2500.0; % [kg]
 VIRTTAC.WeightBalance.PayloadPax  = 8000.0; % [kg]
+VIRTTAC.WeightBalance.PayloadCG   = [VIRTTAC.Geometry.x_ref_25,0.0,0.0]; % vector in body ref. coordinates [m,m,m]
+
+VIRTTAC.WeightBalance.FuelConfig  = 3; % [0] minimum fuel qantity
+                                       % [1] low fuel qantity
+                                       % [2] medium fuel qantity
+                                       % [3] maximum fuel qantity
 % Aircraft Configuration
 VIRTTAC.Trim_Inputs.HighLiftConfiguration = 0; % Flaps 0 (clean) to 5 (full flaps)
 VIRTTAC.Trim_Inputs.GearExtension         = 0; % up [0], down [1] (no gear model included in the model so far)
@@ -70,18 +76,21 @@ end
 
 %% Define/Choose Open-Loop Maneuver
 
-VIRTTAC.OpenLoopManeuver.Names = {'None'                         ;... % 1
-                                  'Elevator 3-2-1-1'             ;... % 2
-                                  'Rudder Doublet'               ;... % 3
-                                  'Aileron Multi-Step'           ;... % 4
-                                  'Flap Transition'              ;... % 5
-                                  'Thrust Pulse'                 ;... % 6
-                                  'Sequential Spoiler Deployment'...  % 7
+VIRTTAC.OpenLoopManeuver.Names = {  'None'                         ;... % 1
+                                    'Elevator 3-2-1-1'             ;... % 2
+                                    'Elevator 1-1-2-3'             ;... % 3
+                                    'Rudder Doublet'               ;... % 4
+                                    'Aileron Multi-Step'           ;... % 5
+                                    'Flap Transition'              ;... % 6
+                                    'Thrust Pulse'                 ;... % 7
+                                    'Sequential Spoiler Deployment';... % 8
+                                    'Roeser_DLRK2018'              ;... % 9 
+                                    'Roeser_DLRK2019'              ;... % 10
                                  };
 % In order to mitigate the risks of typos, the maneuver is selected at the next line
 % via its index in the list that was just defined. The 'VIRTTAC_OpenLoopManeuver_Init' 
 % expects the maneuver name as a string and could of course be called directly.
-tmpManeuverName = VIRTTAC.OpenLoopManeuver.Names{2};
+tmpManeuverName = VIRTTAC.OpenLoopManeuver.Names{8};
 disp(strcat('Selected maneuver: ''',tmpManeuverName,''''));
 [tmpManeuver,VIRTTAC.Sim.EndTime] = VIRTTAC_OpenLoopManeuver_Init(tmpManeuverName,VIRTTAC.Sim,VIRTTAC.Trim_Inputs,Constants);
 
@@ -123,6 +132,10 @@ VIRTTAC_PlotProperties.fontSizeTitle = VIRTTAC_PlotProperties.fontSize + 9;
 VIRTTAC_PlotProperties.RefLineWidth  = 1.5;
 VIRTTAC_PlotProperties.ScalingFactor = 1.0;
 
+% % this function call generates the VIRTTAC "envelope plot"
+EnvPlot_handle = VIRTTAC_Plot_FlightData2Envelope(21 ...% figure number
+                                  ,VIRTTAC_SimData,VIRTTAC_PlotProperties,Constants);
+   
 % this function call generates the VIRTTAC "standard output plot"
 stdPlot_handle = VIRTTAC_Plot_Standard_Inputs_Outputs(22 ...% figure number
                                   ,VIRTTAC_SimData,VIRTTAC_PlotProperties);
@@ -133,7 +146,7 @@ set(stdPlot_handle,...
       'PaperSize', VIRTTAC_PlotProperties.ScalingFactor*2.8*[16 9],...
       'Units' , 'centimeters',...
       'PaperPosition',VIRTTAC_PlotProperties.ScalingFactor*2.8*[0,0,16,9]);
-print(stdPlot_handle,'VIRTTAC_Std_InputOutput_Plot.pdf','-dpdf');
+%print(stdPlot_handle,'VIRTTAC_Std_InputOutput_Plot.pdf','-dpdf');
 % 
 % After exporting the figure, we need to ensure that the size set for the 
 % figure fit into the screen. Indeed, a rather large figure size has been 
@@ -144,7 +157,8 @@ print(stdPlot_handle,'VIRTTAC_Std_InputOutput_Plot.pdf','-dpdf');
 % to 80% of those of the display, at places the lower-left corner of the 
 % window at 10% of the screen size above and right of the lower-left corner 
 % of the screen (i.e. the window is centered on the screen).
-set(stdPlot_handle,'Units','pixels','Position',...
-    round([0.1*([0 0 1 0;0 0 0 1] *get(0, 'Screensize')')' 0 0]...
-                     + [1 1 .8 .8].*get(0, 'Screensize')));
+
+% set(stdPlot_handle,'Units','pixels','Position',...
+%     round([0.1*([0 0 1 0;0 0 0 1] *get(0, 'Screensize')')' 0 0]...
+%                      + [1 1 .8 .8].*get(0, 'Screensize')));
 

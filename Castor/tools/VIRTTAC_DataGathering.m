@@ -11,9 +11,9 @@ AC_Outputs.az_IRU1_g        = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.Ou
 AC_Outputs.p_IRU1_deg_per_s = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.p_IRU1_rads)   * Constants.rad2deg;
 AC_Outputs.q_IRU1_deg_per_s = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.q_IRU1_rads)   * Constants.rad2deg;
 AC_Outputs.r_IRU1_deg_per_s = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.r_IRU1_rads)   * Constants.rad2deg;
-AC_Outputs.phi_IRU1_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.phi_IRU1_rad)  * Constants.rad2deg;
-AC_Outputs.theta_IRU1_deg   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.theta_IRU1_rad)* Constants.rad2deg;
-AC_Outputs.psi_IRU1_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.psi_IRU1_rad)  * Constants.rad2deg;
+AC_Outputs.Phi_IRU1_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.Phi_IRU1_rad)  * Constants.rad2deg;
+AC_Outputs.Theta_IRU1_deg   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.Theta_IRU1_rad)* Constants.rad2deg;
+AC_Outputs.Psi_IRU1_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.Psi_IRU1_rad)  * Constants.rad2deg;
 
 AC_Outputs.ax_IRU2_g        = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.ax_IRU2_g);
 AC_Outputs.ay_IRU2_g        = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.ay_IRU2_g);
@@ -21,9 +21,9 @@ AC_Outputs.az_IRU2_g        = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.Ou
 AC_Outputs.p_IRU2_deg_per_s = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.p_IRU2_rads)   * Constants.rad2deg;
 AC_Outputs.q_IRU2_deg_per_s = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.q_IRU2_rads)   * Constants.rad2deg;
 AC_Outputs.r_IRU2_deg_per_s = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.r_IRU2_rads)   * Constants.rad2deg;
-AC_Outputs.phi_IRU2_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.phi_IRU2_rad)  * Constants.rad2deg;
-AC_Outputs.theta_IRU2_deg   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.theta_IRU2_rad)* Constants.rad2deg;
-AC_Outputs.psi_IRU2_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.psi_IRU2_rad)  * Constants.rad2deg;
+AC_Outputs.Phi_IRU2_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.Phi_IRU2_rad)  * Constants.rad2deg;
+AC_Outputs.Theta_IRU2_deg   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.Theta_IRU2_rad)* Constants.rad2deg;
+AC_Outputs.Psi_IRU2_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.Psi_IRU2_rad)  * Constants.rad2deg;
 
 AC_Outputs.ax_IRU3_g        = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.ax_IRU3_g);
 AC_Outputs.ay_IRU3_g        = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.ay_IRU3_g);
@@ -31,9 +31,9 @@ AC_Outputs.az_IRU3_g        = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.Ou
 AC_Outputs.p_IRU3_deg_per_s = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.p_IRU3_rads)   * Constants.rad2deg;
 AC_Outputs.q_IRU3_deg_per_s = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.q_IRU3_rads)   * Constants.rad2deg;
 AC_Outputs.r_IRU3_deg_per_s = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.r_IRU3_rads)   * Constants.rad2deg;
-AC_Outputs.phi_IRU3_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.phi_IRU3_rad)  * Constants.rad2deg;
-AC_Outputs.theta_IRU3_deg   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.theta_IRU3_rad)* Constants.rad2deg;
-AC_Outputs.psi_IRU3_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.psi_IRU3_rad)  * Constants.rad2deg;
+AC_Outputs.Phi_IRU3_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.Phi_IRU3_rad)  * Constants.rad2deg;
+AC_Outputs.Theta_IRU3_deg   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.Theta_IRU3_rad)* Constants.rad2deg;
+AC_Outputs.Psi_IRU3_deg     = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.IRU.Psi_IRU3_rad)  * Constants.rad2deg;
 
 AC_Outputs.VCAS_ADSP1_ms    = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.ADSP.VCAS_ADSP1_ms);
 AC_Outputs.alpha_ADSP1_deg  = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.ADSP.alpha_ADSP1_rad) * Constants.rad2deg;
@@ -58,6 +58,8 @@ AC_Outputs.H_GPS_m           = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.O
 
 AC_Outputs.N1_LH_Sen_ADM   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.Engine.N1_LH_Sen_ADM);
 AC_Outputs.N1_RH_Sen_ADM   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.Engine.N1_RH_Sen_ADM);
+AC_Outputs.FF_LH_Sen_kgs   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.Engine.FF_LH_Sen_kgs);
+AC_Outputs.FF_RH_Sen_kgs   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.Engine.FF_RH_Sen_kgs);
 
 AC_Outputs.Elevator_LH_deg   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.Ctrl.Elevator_LH_rad) * Constants.rad2deg;
 AC_Outputs.Elevator_RH_deg   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.Ctrl.Elevator_RH_rad) * Constants.rad2deg;
@@ -78,6 +80,11 @@ AC_Outputs.Spoiler_RH2_meas_deg = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTA
 AC_Outputs.Spoiler_RH3_meas_deg = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.Ctrl.Spoiler_RH3_meas_rad) * Constants.rad2deg;
 AC_Outputs.Spoiler_RH4_meas_deg = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.Ctrl.Spoiler_RH4_meas_rad) * Constants.rad2deg;
 AC_Outputs.Spoiler_RH5_meas_deg = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.Ctrl.Spoiler_RH5_meas_rad) * Constants.rad2deg;
+
+
+AC_Outputs.FuelQty_LH_kg    = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.WeightandBalance.FuelQty_LH_kg);
+AC_Outputs.FuelQty_CNT_kg   = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.WeightandBalance.FuelQty_CNT_kg);
+AC_Outputs.FuelQty_RH_kg    = VIRTTAC_SimDataOutputs.signals.values(:,VIRTTAC.OutputInterface.Index.WeightandBalance.FuelQty_RH_kg);
 
 
 

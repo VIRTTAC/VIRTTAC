@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.66"
+    ComputedModelVersion    "1.71"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -44,9 +44,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "feza_ni"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri May 17 10:35:55 2019"
+  LastModifiedDate	  "Thu Aug 22 15:01:05 2019"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:66>"
+  ModelVersionFormat	  "1.%<AutoIncrement:71>"
   ConfigurationManager	  "None"
   SimulationMode	  "normal"
   LinearizationMsg	  "none"
@@ -1006,6 +1006,15 @@ Model {
 	      ZeroCross		      on
 	    }
 	    Block {
+	      BlockType		      FromWorkspace
+	      Name		      "HorizontalStabilizerCmd"
+	      Position		      [270, 174, 550, 196]
+	      BackgroundColor	      "yellow"
+	      VariableName	      "VIRTTAC.OpenLoopManeuver.HorizontalStabilizerCmd"
+	      SampleTime	      "0"
+	      ZeroCross		      on
+	    }
+	    Block {
 	      BlockType		      Mux
 	      Name		      "Mux2"
 	      Ports		      [6, 1]
@@ -1115,6 +1124,21 @@ Model {
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum5"
+	      Ports		      [2, 1]
+	      Position		      [580, 210, 600, 230]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "++|"
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
 	      BlockType		      Constant
 	      Name		      "horizontal stabilzer command"
 	      Position		      [15, 209, 255, 231]
@@ -1203,8 +1227,8 @@ Model {
 	    Line {
 	      SrcBlock		      "horizontal stabilzer command"
 	      SrcPort		      1
-	      DstBlock		      "Mux2"
-	      DstPort		      3
+	      DstBlock		      "Sum5"
+	      DstPort		      2
 	    }
 	    Line {
 	      SrcBlock		      "ElevatorCmd"
@@ -1276,6 +1300,19 @@ Model {
 		DstBlock		"Sum4"
 		DstPort			1
 	      }
+	    }
+	    Line {
+	      SrcBlock		      "Sum5"
+	      SrcPort		      1
+	      DstBlock		      "Mux2"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "HorizontalStabilizerCmd"
+	      SrcPort		      1
+	      Points		      [35, 0]
+	      DstBlock		      "Sum5"
+	      DstPort		      1
 	    }
 	  }
 	}
@@ -1935,7 +1972,7 @@ Model {
       FunctionWithSeparateData off
       System {
 	Name			"FailureScenarios"
-	Location		[212, 508, 1280, 905]
+	Location		[963, 299, 2057, 899]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1950,6 +1987,51 @@ Model {
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  Constant
+	  Name			  "Actuator Fault Aileron LH"
+	  Position		  [20, 393, 305, 417]
+	  BackgroundColor	  "orange"
+	  Value			  "VIRTTAC.ErrorCase.ActuatorFault.AileronLH"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Actuator Fault Aileron RH"
+	  Position		  [20, 438, 305, 462]
+	  BackgroundColor	  "orange"
+	  Value			  "VIRTTAC.ErrorCase.ActuatorFault.AileronRH"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Actuator Fault Elevator LH"
+	  Position		  [20, 303, 305, 327]
+	  BackgroundColor	  "orange"
+	  Value			  "VIRTTAC.ErrorCase.ActuatorFault.ElevatorLH"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Actuator Fault Elevator RH"
+	  Position		  [20, 348, 305, 372]
+	  BackgroundColor	  "orange"
+	  Value			  "VIRTTAC.ErrorCase.ActuatorFault.ElevatorRH"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Actuator Fault Rudder"
+	  Position		  [20, 483, 305, 507]
+	  BackgroundColor	  "orange"
+	  Value			  "VIRTTAC.ErrorCase.ActuatorFault.Rudder"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
 	  Name			  "Horizontal Tail Ice flag"
 	  Position		  [25, 194, 235, 216]
 	  BackgroundColor	  "orange"
@@ -1961,13 +2043,45 @@ Model {
 	  BlockType		  Mux
 	  Name			  "Mux1"
 	  Ports			  [2, 1]
-	  Position		  [315, 101, 320, 239]
+	  Position		  [525, 136, 530, 274]
 	  ShowName		  off
 	  Inputs		  "2"
 	  DisplayOption		  "bar"
 	  Port {
 	    PortNumber		    1
 	    Name		    "ErrorCaseDefinition"
+	    PropagatedSignals	    "ErrorCasesIcing, ErrorCasesActuators"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux2"
+	  Ports			  [5, 1]
+	  Position		  [370, 286, 375, 524]
+	  ShowName		  off
+	  Inputs		  "5"
+	  DisplayOption		  "bar"
+	  Port {
+	    PortNumber		    1
+	    Name		    "ErrorCasesActuators"
+	    PropagatedSignals	    ", , , , "
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux3"
+	  Ports			  [2, 1]
+	  Position		  [310, 101, 315, 239]
+	  ShowName		  off
+	  Inputs		  "2"
+	  DisplayOption		  "bar"
+	  Port {
+	    PortNumber		    1
+	    Name		    "ErrorCasesIcing"
 	    PropagatedSignals	    ", "
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
@@ -1985,23 +2099,11 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "ErrorCaseDefinition"
-	  Position		  [485, 163, 515, 177]
+	  Position		  [680, 198, 710, 212]
 	  BackgroundColor	  "magenta"
 	  IconDisplay		  "Port number"
-	  PortDimensions	  "2"
+	  PortDimensions	  "7"
 	  DataType		  "double"
-	}
-	Line {
-	  SrcBlock		  "Wing Ice flag"
-	  SrcPort		  1
-	  DstBlock		  "Mux1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Horizontal Tail Ice flag"
-	  SrcPort		  1
-	  DstBlock		  "Mux1"
-	  DstPort		  2
 	}
 	Line {
 	  Name			  "ErrorCaseDefinition"
@@ -2010,6 +2112,65 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "ErrorCaseDefinition"
 	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Actuator Fault Elevator LH"
+	  SrcPort		  1
+	  DstBlock		  "Mux2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Actuator Fault Elevator RH"
+	  SrcPort		  1
+	  DstBlock		  "Mux2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Actuator Fault Aileron LH"
+	  SrcPort		  1
+	  DstBlock		  "Mux2"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Actuator Fault Aileron RH"
+	  SrcPort		  1
+	  DstBlock		  "Mux2"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Actuator Fault Rudder"
+	  SrcPort		  1
+	  DstBlock		  "Mux2"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Wing Ice flag"
+	  SrcPort		  1
+	  DstBlock		  "Mux3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Horizontal Tail Ice flag"
+	  SrcPort		  1
+	  DstBlock		  "Mux3"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "ErrorCasesIcing"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Mux3"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ErrorCasesActuators"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Mux2"
+	  SrcPort		  1
+	  Points		  [70, 0; 0, -165]
+	  DstBlock		  "Mux1"
+	  DstPort		  2
 	}
       }
     }
@@ -2025,8 +2186,9 @@ Model {
     Block {
       BlockType		      SignalSpecification
       Name		      "Signal Specification"
-      Position		      [365, 241, 460, 269]
-      Dimensions	      "27"
+      Position		      [360, 241, 480, 269]
+      ShowName		      off
+      Dimensions	      "VIRTTAC.Sim.InputPortDim"
       DataType		      "double"
       OutDataType	      "sfix(16)"
       OutScaling	      "2^0"
