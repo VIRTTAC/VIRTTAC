@@ -90,7 +90,7 @@ VIRTTAC.OpenLoopManeuver.Names = {  'None'                         ;... % 1
 % In order to mitigate the risks of typos, the maneuver is selected at the next line
 % via its index in the list that was just defined. The 'VIRTTAC_OpenLoopManeuver_Init' 
 % expects the maneuver name as a string and could of course be called directly.
-tmpManeuverName = VIRTTAC.OpenLoopManeuver.Names{8};
+tmpManeuverName = VIRTTAC.OpenLoopManeuver.Names{1};
 disp(strcat('Selected maneuver: ''',tmpManeuverName,''''));
 [tmpManeuver,VIRTTAC.Sim.EndTime] = VIRTTAC_OpenLoopManeuver_Init(tmpManeuverName,VIRTTAC.Sim,VIRTTAC.Trim_Inputs,Constants);
 
