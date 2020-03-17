@@ -22,10 +22,10 @@
 <p>This directory contains the necessary script to generate a dataset for system identification purposes using VIRTTAC-Castor. The main entry point for the simulation is the <em><code>VIRTTAC_GenerateDataset.m</code></em> script, which contains the following parts and functionalities:</p>
 <ul>
 <li>Set up of the VIRTTAC model and initialization of necessary variables (default) in the Matlab workspace.</li>
-<li>Definition of a list of system identification maneuvers and flight conditions (see <em><code>VIRTTAC_InitListOfTestPoints.m</code></em> function).</li>
+<li>Definition of a list of system identification maneuvers and flight conditions (see inside the MATLAB file <em><code>VIRTTAC_InitListOfTestPoints.m</code></em> within the workbench directory).</li>
 <li>Performing all these maneuvers and saving the results (one .mat file per maneuver is created under the directory <em><code>datasets</code></em> within the directory corresponding to the current date and time).</li>
 </ul>
-<p>Plots are not automatically generated for the simulated maneuvers, however the script <em><code>VIRTTAC_ReadAndPlotDatasets.m</code></em> can be used to automatically create a plots and export them both to PDF and to PNG (one envelope plot and one time series plot for each maneuver)</p>
+<p>Plots are not automatically generated for the simulated maneuvers, however in the workbench directory a function called <em><code>VIRTTAC_ReadAndPlotDatasets.m</code></em> is provided. It can be used to automatically create a plots and export them both to PDF and to PNG (one envelope plot and one time series plot for each maneuver)</p>
 <p>Further information on this workbench can be found in the paper: Nicolas Fezans, Christoph Deiler, Mathias Stefan Roeser: "Generation of a Dataset for System Identification with VIRTTAC-Castor," Proceedings of the 2019 German Aerospace Congress (DLRK), Darmstadt, Germany, Sept. 30th - Oct. 2nd 2019. Document ID: DLRK2019_490132. <a href="https://elib.dlr.de/129105/">https://elib.dlr.de/129105/</a></p>
 </body>
 </html>
